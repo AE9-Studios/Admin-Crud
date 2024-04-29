@@ -1,0 +1,21 @@
+version: '3'
+
+services: 
+
+  admin-crud:
+    build: 
+      context: .
+    container_name: admincrud
+    working_dir: /usr/src/app
+    tty: true
+    ports: 
+      - "3001:3001"
+    expose:
+      - "3001"
+    command: npm run start
+    networks:
+      - node-network
+
+networks:
+  node-network:
+    external: true
